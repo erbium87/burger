@@ -31,7 +31,7 @@ var orm = {
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
+  insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -45,6 +45,7 @@ var orm = {
 
     connection.query(queryString, vals, function(err, result) {
       if (err) {
+        console.log("create not working");
         throw err;
       }
       cb(result);
@@ -81,6 +82,6 @@ var orm = {
 //       cb(result);
 //     });
 //   }
-// };
+};
 
 module.exports = orm;

@@ -15,11 +15,12 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-  burger.create([
-    "burger_name", 
-    "devoured"
+  burger.insertOne([
+    "burger_name" 
+    // "devoured"
   ], [
-    req.body.burger_name, req.body.devoured
+    req.body.burger_name 
+    // req.body.devoured
   ], function() {
     res.redirect("/");
   });
@@ -31,7 +32,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.update({
-    devoured: req.body.devoured
+    burger: req.body.burger_name
   }, condition, function() {
     res.redirect("/");
   });
